@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define max 5
+#define max 10
 typedef int datatype;
 typedef struct{
-	datatype data[5];
+	datatype data[max];
 	int length;
 }stack;
 
-stack *Init()
+stack *Init()//初始化
 {
 	stack *s;
 	s = (stack *)malloc(sizeof(stack));
@@ -17,17 +17,10 @@ stack *Init()
 		printf("初始化成功！\n");
 		return ;
 	}
-	else{
-		printf("初始化失败！\n");
-	}
-	/*for(int i = 0;i < max;i++){
-		s->data[i] = i;
-		s->length++;
-	}*/
 	return;
 
 }
-int push(stack *s,datatype x)
+int push(stack *s,datatype x)//入栈
 {
 	if(s->length >= max){
 		printf("full!\n");
@@ -37,7 +30,7 @@ int push(stack *s,datatype x)
 	s->data[s->length - 1] = x;
 	return;
 }
-int pop(stack *s)
+int pop(stack *s)//出栈
 {
 	datatype *x;
 	x = (datatype *)malloc(sizeof(datatype));
@@ -47,13 +40,13 @@ int pop(stack *s)
 	return;
 }
 
-int gettop(stack *s)
+int gettop(stack *s)//获取栈顶元素
 {
-	printf("%d\n",s->data[4]);
+	printf("栈顶元素为：%d\n",s->data[s->length-1]);
 	
 }
 
-void display(stack *s)
+void display(stack *s)//打印函数
 {
 	for(int i= 0;i < s->length;i++){
 		printf("%d\n",s->data[i]);
@@ -63,18 +56,19 @@ void display(stack *s)
 
 int main(int argc,char **argv)
 {	
-	//typedef int datatype;
-	//datatype data;
 	stack *s;
 	s = (stack *)malloc(sizeof(stack));//主函数要重新分配一次内存！！
-	//int arr[] = {0,1,2,3,4};
-	//data = arr;
 	Init();
-	//display(s);
-	push(s,2);
-	//pop(s);
-	//display(s);
-	//gettop(s);
+	for(int i = 0;i < 10;i++){//入栈10个元素
+	push(s,i);
+		}
+	display(s);
+	gettop(s);
+	for(int i = s->length-1;i > 6 ;i--){//将后6个数据出栈
+		pop(s);
+	}
+	display(s);
+	gettop(s);//获取栈顶元素
 	
 
 
