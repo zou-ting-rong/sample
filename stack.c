@@ -64,7 +64,7 @@ int main(int argc,char **argv)
 		}
 	display(s);
 	gettop(s);
-	for(int i = s->length-1;i > 6 ;i--){//将后6个数据出栈
+	for(int i = s->length-1;i > 8 ;i--){//将后6个数据出栈
 		pop(s);
 	}
 	display(s);

@@ -23,7 +23,7 @@ list *Init()
 		//a->next = NULL;
 		temp->next = a;
 		temp = temp->next;
-		printf("sucess!\n");
+		//printf("sucess!\n");
 	}
 	return head;
 
@@ -36,22 +36,23 @@ void display(list *head)
 	while(temp->next){
 		temp = temp->next;
 		printf("%d\n",temp->data);
-		printf("succss\n");
+		//printf("succss\n");
 	}
 	printf("\n");
 }
 
-int insert(list *head,int j)
+int insert(list *head,int j)//j在第几个结点插入
 {
+	int k = 3;
 	list *temp = head;
-	for(int i =0;i < j;i++){
+	for(int i =0;i < j;i++){//将指针移动到索要插入位置的前一个结点
 		temp = temp->next;
 	}
 	//temp->data = j;
 	list *a;
 	a = (list *)malloc(sizeof(list));
 	a->next = temp->next;
-	a->data = j;
+	a->data = k;
 	temp->next = a;
 	printf("插入成功！\n");
 }

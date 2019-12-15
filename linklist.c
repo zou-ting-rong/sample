@@ -27,7 +27,7 @@ linklist *Init()
 	return head;
 }
 
-int seacher(linklist *head,int j)
+char seacher(linklist *head,int j)
 {
 	linklist *q = head;
 	int i = 0;
@@ -35,8 +35,8 @@ int seacher(linklist *head,int j)
 		q = q->next;
 		if(q->next->data.num == j){
 			printf("%s\n",q->next->data.name);
-			//return ;//return 可以无返回值，只是用于结束方法等价于break
-			break;//
+			return q->next->data.name//return 可以无返回值，只是用于结束方法等价于break
+			//break;//
 		}
 		i++;
 	}
