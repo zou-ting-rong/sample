@@ -12,8 +12,6 @@
 void menu(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 void user(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
-void manager1(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
-//void hostname(linklist *head,reader *tip,linkstudent *headS,linklist *temporary)
 void username(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 void userregister(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 void userfirst(linklist *head,linkstudent *headS,reader *tip,linklist *temporary);
@@ -21,4 +19,8 @@ void in(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 void students(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 
 void hostname(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
+
+void menu1(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
+
+void menu2(linklist *head,reader *tip,linkstudent *headS,linklist *temporary);
 #endif

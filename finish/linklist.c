@@ -147,15 +147,6 @@ linklist *insert(linklist *head)
 	return temp;
 }
 
-/*linklist *insertptr(linklist *head,linklist *ptr)//从暂存链表中将数据返回
-{
-	linklist *temp = temp;
-	ptr->next = temp->next;
-	temp->next = ptr;
-	temp = temp->next;
-	return temp;
-}*/
-
 void display(linklist *head)
 {
 	linklist *temp = head;
@@ -218,7 +209,8 @@ void displayB(linklist *head)
 		}
 		
 	} 
-} 
+}
+
 linklist *dle(linklist *head)//返回一个指针的删除
 {
 	int i;
@@ -256,69 +248,10 @@ linklist *dle1(linklist *head,int i)//返回一个整型的删除
 		}
 		return head;
 	}
+
 void count (linklist *head)
 {
 	printf("***************************************\n");
 	printf("图书馆一共有%d 本书\n",head->count);
 	printf("***************************************\n");
 }
-
-linklist *Inittem(){
-	linklist *temporary;
-	temporary = (linklist *)malloc(sizeof(linklist));
-	temporary->next = NULL;
-	return temporary;
-}//暂存链表的初始化
-
-linklist *inserttem(linklist *temporary,book data){
-	linklist *temptem = temporary;
-	linklist *q;
-	q = (linklist *)malloc(sizeof(linklist));
-	q->data = data;
-	q->next = temporary->next;
-	temporary->next = q;
-	temporary = temporary->next;
-	return temporary;
-}//暂存链表的插入
-
-linklist *dletem(linklist *head,linklist *temporary,int i){
-	linklist *temptem = temporary;
-	while(temporary->next){
-		//temptem = temptem->next;
-		if(temptem->data.id = i){
-			linklist *ptr1;//申请结点
-			ptr1 = (linklist *)malloc(sizeof(linklist));
-			ptr1 = temptem;
-			temptem->next = temptem->next->next;
-			//inserttem(head,ptr1);
-			insert1(head,ptr1);
-			free(ptr1);
-		}
-		temptem = temptem->next;
-	}
-}//将暂存链表中的数据返回
-
-void displaytem(linklist *temporary){
-	linklist *temptem = temporary;
-	while(temporary->next){
-		temptem = temptem->next;
-		printf("***************************************\n");
-		printf("书本的id为：%d\n",temptem->data.id);
-		printf("***************************************\n");
-		printf("书本的出版时间为：%d  年 %d 月 %d 日 \n",temptem->data.DATA.year,temptem->data.DATA.month,temptem->data.DATA.day);
-		printf("***************************************\n");
-		printf("书本的名字为：%s\n",temptem->data.name);
-		printf("***************************************\n");
-		printf("书本作者名字为：%s\n",temptem->data.author_name);
-		printf("***************************************\n");
-		printf("书本的简介为：%s\n",temptem->data.info);
-		printf("***************************************\n");
-		printf("书本的出版社为：%s\n",temptem->data.publish);
-		printf("***************************************\n");
-		printf("书本的单价为：%lf\n",temptem->data.price);
-		printf("***************************************\n");
-	}
-	printf("\n");
-}//打印暂存链表中的信息
-
-

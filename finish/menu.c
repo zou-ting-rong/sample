@@ -37,7 +37,7 @@ void menu(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
 			menu(head,tip,headS,temporary);
 		} 
 }
-void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
+/*void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
 			int j;
 			printf("      *************管理员**************\n");
 			printf("*********************************************************\n");
@@ -62,54 +62,54 @@ void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
 					system("clear");
 					insert(head);
 					system("clear");
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 2:
 					system("clear");
 					bubble_id(head);
 					system("clear");
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 3:
 					system("clear");
 					bubble_price(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 4:
 					system("clear");
 					count(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 5:
 					system("clear");
 					dle(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 6:
 					system("clear");
 					seacher(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 7:
 					system("clear");
 					findByname(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 8:
 					system("clear");
 					findByauthor_name(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 9:
 					system("clear");
 					change(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 10:
 					system("clear");
 					display(head);
 					//system("clear");
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				case 11:
 					system("clear");
@@ -123,13 +123,153 @@ void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
 					system("clear");
 					printf("*****************已被借出的书本**************\n");
 					displayB(head);
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 					break;
 				default:
 					printf("输入选项错误！\n");
-					manager1(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
 				}
-		} 
+		}
+*/
+void manager(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
+			int j;
+			printf("      *************管理员**************\n");
+			printf("*********************************************************\n");
+			printf("|1|添加图书               |2|查找书本\n");
+			printf("*********************************************\n");
+			printf("|3|排序                   |4|删除指定编号书本\n");
+			printf("*********************************************\n");
+			printf("|5|修改指定图书相关信息   |6|查看图书馆全部图书信息 \n");
+			printf("*********************************************\n");
+			printf("|7|学生库信息             |8|查看已被借出书本\n");
+			printf("*********************************************\n");
+			printf("|9|返回上一层                                \n");
+			printf("*********************************************\n");
+			printf("请输入你的选择\n");
+			scanf("%d",&j);
+			switch(j){
+				case 1:
+					system("clear");
+					insert(head);
+					system("clear");
+					manager(head,tip,headS,temporary);
+					break;
+				case 2:
+					system("clear");
+					menu1(head,tip,headS,temporary);
+					break;
+				case 3:
+					system("clear");
+					menu2(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
+					break;
+				case 4:
+					system("clear");
+					dle(head);
+					manager(head,tip,headS,temporary);
+					break;
+				case 5:
+					system("clear");
+					change(head);
+					manager(head,tip,headS,temporary);
+					break;
+				case 6:
+					system("clear");
+					display(head);
+					//system("clear");
+					manager(head,tip,headS,temporary);
+					break;
+				case 7:
+					system("clear");
+					students(head,tip,headS,temporary);
+					manager(head,tip,headS,temporary);
+					break;
+				case 8:
+					system("clear");
+					printf("*****************已被借出的书本**************\n");
+					displayB(head);
+					manager(head,tip,headS,temporary);
+					break;
+				case 9:
+					system("clear");
+					menu(head,tip,headS,temporary);
+					break;
+				default:
+					printf("输入选项错误！\n");
+					manager(head,tip,headS,temporary);
+				}
+		}
+void menu1(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
+			int j;
+			printf("*********************************************************\n");
+			printf("|1|按编号查找             |2|按书名查找\n");
+			printf("*********************************************\n");
+			printf("|3|按作者名查找           |4|按书本类型查找\n");
+			printf("*********************************************\n");
+			printf("|5|返回上一层\n");
+			printf("*********************************************\n");
+			printf("请输入你的选择\n");
+			scanf("%d",&j);
+			switch(j){
+				case 1:
+					system("clear");
+					seacher(head);
+					menu1(head,tip,headS,temporary);
+					break;
+				case 2:
+					system("clear");
+					findByname(head);
+					menu1(head,tip,headS,temporary);
+					break;
+				case 3:
+					system("clear");
+					findByauthor_name(head);
+					menu1(head,tip,headS,temporary);
+					break;
+				case 4:
+					system("clear");
+					findBytype(head);
+					menu1(head,tip,headS,temporary);
+					break;
+				case 5:
+					system("clear");
+					manager(head,tip,headS,temporary);
+					break;
+				default:
+					printf("输入选项错误！\n");
+					menu1(head,tip,headS,temporary);
+				}
+		}
+
+void menu2(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
+			int j;
+			printf("*********************************************************\n");
+			printf("|1|按价格排序             |2|按编号排序\n");
+			printf("*********************************************\n");
+			printf("|3|返回上一层\n");
+			printf("*********************************************\n");
+			printf("请输入你的选择\n");
+			scanf("%d",&j);
+			switch(j){
+				case 1:
+					system("clear");
+					bubble_price(head);
+					menu2(head,tip,headS,temporary);
+					break;
+				case 2:
+					system("clear");
+					bubble_id(head);
+					menu2(head,tip,headS,temporary);
+					break;
+				case 3:
+					system("clear");
+					menu1(head,tip,headS,temporary);
+					break;
+				default:
+					printf("输入选项错误！\n");
+					menu2(head,tip,headS,temporary);
+				}
+		}
 void in(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
 	int t;
 	printf("*********************************************\n");
@@ -222,99 +362,6 @@ void user(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){//*
 			}
 
 
-void manager1(linklist *head,reader *tip,linkstudent *headS,linklist *temporary){
-			int j;
-			printf("*************管理员**************\n");
-			printf("|1|添加图书               |2|按id排序\n");
-			printf("********************************************************\n");
-			printf("|3|按价格排序             |4|计算图书馆图书总数\n");
-			printf("********************************************************\n");
-			printf("|5|删除指定编号图书       |6|按id进行查找 \n");
-			printf("********************************************************\n");
-			printf("|7|按书名进行查找         |8|根据作者名字进行查找\n");
-			printf("********************************************************\n");
-			printf("|9|修改指定图书相关信息   |10|查看图书馆全部图书相关信息\n");
-			printf("********************************************************\n");
-			printf("|11|信息库                |12|返回上一界面\n");
-			printf("********************************************************\n");
-			printf("|13|查看已被借出去的书本  |14|按类型查找                \n");
-			printf("********************************************************\n");
-			printf("请输入你的选择\n");
-			scanf("%d",&j);
-			switch(j){
-				case 1:
-					system("clear");
-					insert(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 2:
-					system("clear");
-					bubble_id(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 3:
-					system("clear");
-					bubble_price(head);
-					manager1(head,tip,headS,temporary);
-				case 4:
-					system("clear");
-					count(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 5:
-					system("clear");
-					dle(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 6:
-					system("clear");
-					seacher(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 7:
-					system("clear");
-					findByname(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 8:
-					system("clear");
-					findByauthor_name(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 9:
-					system("clear");
-					change(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 10:
-					system("clear");
-					display(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 11:
-					system("clear");
-					students(head,tip,headS,temporary);
-					break;
-				case 12:
-					system("clear");
-					menu(head,tip,headS,temporary);
-					break;
-				case 13:
-					system("clear");
-					displayB(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				case 14:
-					system("clear");
-					findBytype(head);
-					manager1(head,tip,headS,temporary);
-					break;
-				default:
-					system("clear");
-					printf("输入选项错误！\n");
-					manager1(head,tip,headS,temporary);
-				}
-			}
 void userfirst(linklist *head,linkstudent *headS,reader *tip,linklist *temporary){
 				int i;
 				i = sercherS1(headS);
@@ -370,7 +417,7 @@ void hostname(linklist *head,reader *tip,linkstudent *headS,linklist *temporary)
 			if(m == 1){
 				printf("正在登入...\n");
 				sleep(1);
-				manager1(head,tip,headS,temporary);
+				manager(head,tip,headS,temporary);
 				}
 			else{
 				printf("用户名或密码错误！\n");
@@ -462,7 +509,7 @@ void students(linklist *head,reader *tip,linkstudent *headS,linklist *temporary)
 			break;
 		case 4:
 			system("clear");
-			manager1(head,tip,headS,temporary);
+			manager(head,tip,headS,temporary);
 			break;
 		default:
 			printf("选择错误！\n");

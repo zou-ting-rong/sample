@@ -49,7 +49,7 @@ void *push(linklist *head,reader *tip,linklist *temporary){
 	//i = findByname(head);
 	p = findBynameptr(head);
 	i = p->data.id;
-	if(i == 1){
+	if(i == p->data.id){
 		reader *q;//用于接住数据、
 		q = (reader *)malloc(sizeof(reader));
 		q->datareader.id = p->data.id;
