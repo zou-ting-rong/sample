@@ -77,6 +77,31 @@ void Inorder(LPtree root)
 	}
 }
 
+//中序遍历的非递归
+
+void InorderBystack(LPtree root)
+{
+	if(root == NULL){
+		return;
+	}
+	 //栈的准备工作
+	 LPtree stack[10];
+	 int stacktop = -1;
+	 LPtree temp = root;
+	 while(stacktop != -1 || temp != NULL){
+		 //走到最左边，把走过的结点入栈
+		 while(temp != NULL){
+			 stack[++stacktop] = temp;
+			 temp = temp->lchild;
+		 }
+		 if(stacktop != -1){
+			 temp = stack[stacktop];
+			 printf("%c\t",temp->data);
+			 stacktop--;
+			 temp = temp->rchild;
+		 }
+	 }
+}
 //后序遍历
 void Foorder(LPtree root)
 {
@@ -86,16 +111,33 @@ void Foorder(LPtree root)
 		display(root);
 	}
 }
+
+//非递归后序遍历
+void FoorderBystack(LPtree root)
+{
+	
+}
 int main(int argc,char **argv)
 {
 	LPtree A = CreatTree('A');
 	LPtree B = CreatTree('B');
 	LPtree C = CreatTree('C');
+	LPtree D = CreatTree('D');
+	LPtree E = CreatTree('E');
+	LPtree F = CreatTree('F');
+	LPtree G = CreatTree('G');
+	LPtree H = CreatTree('H');
+	LPtree I = CreatTree('I');
 	printf("先序遍历\n");
 	InsertNode(A,B,C);
+	InsertNode(B,D,E);
+	InsertNode(C,F,G);
+	InsertNode(D,H,I);
 	Preoder(A);
-	printf("\n非递归遍历\n");
+	printf("\n非递归先序遍历\n");
 	TraverBystack(A);
+	printf("\n非递归中序遍历\n");
+	InorderBystack(A);
 	printf("\n中序遍历\n");
 	Inorder(A);
 	printf("\n后序遍历\n");
